@@ -1,0 +1,42 @@
+@import "variables";
+
+header {
+  padding: 20px 40px 40px 40px;
+  background-color: $color-background-dark;
+  .logo {
+    width: 40px;
+    margin-right: $margin-medium;
+  }
+
+  .header-menu-links {
+    padding: 30px 18px;
+    a {
+      margin-right: $margin-medium;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      &.active {
+        color: $color-title-light;
+      }
+    }
+  }
+
+  .header-social-links {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    width: max-content;
+
+    .social-link {
+      margin-left: $margin-small;
+      img {
+        width: 22px;
+        opacity: 0.5;
+      }
+    }
+  }
+}

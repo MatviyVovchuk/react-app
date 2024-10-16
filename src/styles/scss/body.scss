@@ -1,0 +1,26 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-title-light;
+
+  &:hover {
+    color: $color-title-light;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $color-background-body;
+}
+
+@media (min-width: 1680px) {
+  .container {
+    max-width: $width-big-desktop;
+  }
+}
