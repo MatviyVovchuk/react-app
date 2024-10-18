@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 
 function Menu(props) {
-  const { children } = props;
+  const { children, isBurgerOpen } = props;
   const [menuLinks, setMenuLinks] = useState([]);
 
   useEffect(() => {
@@ -21,23 +21,24 @@ function Menu(props) {
   }, []);
 
   return (
-    <div className="header-menu-links col-lg-9 col-md-6 col-6">
+    <div className="header-menu-links ">
       {children}
-      {menuLinks.map((link, index) => {
-        return (
-          <a
-            key={index}
-            href={link.link.uri}
-            className={
-              link.title === "Blog"
-                ? `menu-link active menu-link-${link.title}`
-                : `menu-link menu-link-${link.title}`
-            }
-          >
-            {link.title}
-          </a>
-        );
-      })}
+      <div className={"menu-links " + (isBurgerOpen ? "open" : "")}>
+        {menuLinks.map((link, index) => {
+          return (
+            <a
+              key={index}
+              href={link.link.uri}
+              className={
+                `menu-link menu-link-${link.title} ` +
+                (link.title === "Blog" ? "active" : "")
+              }
+            >
+              {link.title}
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 }

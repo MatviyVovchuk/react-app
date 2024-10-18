@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 
-function SocialMedia() {
+function SocialMedia(props) {
   const [socialLinks, setSocialLinks] = useState([]);
+  const { isBurgerOpen } = props;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +36,7 @@ function SocialMedia() {
   }, []);
 
   return (
-    <div className="header-social-links col-lg-3 col-md-6 col-6">
+    <div className={"header-social-links " + (isBurgerOpen ? "open" : "")}>
       {socialLinks.map((link, index) => (
         <a
           key={index}

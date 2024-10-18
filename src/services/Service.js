@@ -49,6 +49,50 @@ const Service = {
     const staticDomain = import.meta.env.VITE_SITE_DOMEN;
     return `${staticDomain}${imagePath}`;
   },
+
+  getPageTitle: async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_PAGE_TITLE_API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch page title");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching page title:", error);
+      throw error;
+    }
+  },
+
+  getImportantTeser: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_IMPORTANT_TEASER_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch important teser");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching important teser:", error);
+      throw error;
+    }
+  },
+
+  getOtherTeasers: async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_OTHER_TEASER_API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch other teaser");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching other teaser:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

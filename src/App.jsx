@@ -6,7 +6,7 @@ import Blog from "./pages/Blog";
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Header />
       <Blog />
     </div>
