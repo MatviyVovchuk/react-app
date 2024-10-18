@@ -36,19 +36,21 @@ function SocialMedia(props) {
   }, []);
 
   return (
-    <div className={"header-social-links " + (isBurgerOpen ? "open" : "")}>
-      {socialLinks.map((link, index) => (
-        <a
-          key={index}
-          href={link.field_link.uri}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`social-link social-link-${link.field_icon_svg.meta.alt}`}
-        >
-          <img src={link.imageUrl} alt={link.field_icon_svg.meta.alt} />
-        </a>
-      ))}
-    </div>
+    !isBurgerOpen && (
+      <div className={"header-social-links " + (isBurgerOpen ? "open" : "")}>
+        {socialLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.field_link.uri}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`social-link social-link-${link.field_icon_svg.meta.alt}`}
+          >
+            <img src={link.imageUrl} alt={link.field_icon_svg.meta.alt} />
+          </a>
+        ))}
+      </div>
+    )
   );
 }
 

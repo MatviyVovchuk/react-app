@@ -4,7 +4,7 @@ import Teaser from "./Teaser";
 
 function TeaserMainWithThree() {
   const [teasers, setTeasers] = useState({
-    importantTeaser: null,
+    importantTeaser: [],
     otherTeasers: [],
   });
 
@@ -63,6 +63,8 @@ function TeaserMainWithThree() {
           teaserDate={teasers.importantTeaser.teasereDate}
           teaserTitle={teasers.importantTeaser.teaserTitle}
           teaserBody={teasers.importantTeaser.teaserBody}
+          teaserImageClass="col-lg-12 col-md-6"
+          teaserDataClass="col-lg-12 col-md-6"
         />
       </div>
       <div className="other-teaser col-lg-6 col-md-12">

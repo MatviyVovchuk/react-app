@@ -21,25 +21,27 @@ function Menu(props) {
   }, []);
 
   return (
-    <div className="header-menu-links ">
-      {children}
-      <div className={"menu-links " + (isBurgerOpen ? "open" : "")}>
-        {menuLinks.map((link, index) => {
-          return (
-            <a
-              key={index}
-              href={link.link.uri}
-              className={
-                `menu-link menu-link-${link.title} ` +
-                (link.title === "Blog" ? "active" : "")
-              }
-            >
-              {link.title}
-            </a>
-          );
-        })}
+    !isBurgerOpen && (
+      <div className="header-menu-links ">
+        {children}
+        <div className={"menu-links " + (isBurgerOpen ? "open" : "")}>
+          {menuLinks.map((link, index) => {
+            return (
+              <a
+                key={index}
+                href={link.link.uri}
+                className={
+                  `menu-link menu-link-${link.title} ` +
+                  (link.title === "Blog" ? "active" : "")
+                }
+              >
+                {link.title}
+              </a>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    )
   );
 }
 

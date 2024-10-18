@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Service from "../services/Service";
 import Menu from "./Links/Menu";
 import SocialMedia from "./Links/SocialMedia";
-import BurgerIcon from "./BurgerIcon";
+import BurgerIcon from "./Burger/BurgerIcon";
+import BurgerMenu from "./Burger/BurgerMenu";
 
 function Header() {
   const [logo, setLogo] = useState(null);
@@ -41,9 +42,11 @@ function Header() {
         </Menu>
       </div>
       <BurgerIcon onClick={toggleBurger} isOpen={isBurgerOpen} />
+
       <div className="header-social-container col-lg-3 col-md-6 col-6">
         <SocialMedia isBurgerOpen={isBurgerOpen}></SocialMedia>
       </div>
+      <BurgerMenu isBurgerOpen={isBurgerOpen} />
     </header>
   );
 }
