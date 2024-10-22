@@ -1,11 +1,11 @@
 @import "variables";
 
-.important-teaser {
+.important-article {
   margin-bottom: 40px;
 }
 
-.teaser-main-w3 {
-  .teaser-container {
+.feature-article {
+  .article-container {
     margin: 0 10px;
   }
 
@@ -13,13 +13,13 @@
     text-decoration: none;
     color: $color-title-light;
   }
-  .teaser {
-    .teaser-image {
+  .article {
+    .article-image {
       img {
         width: 100%;
       }
     }
-    .teaser-data {
+    .article-data {
       &-title {
         font-weight: 600;
         font-size: 32px;
@@ -47,8 +47,8 @@
     }
   }
 
-  .other-teaser {
-    .teaser-container {
+  .other-article {
+    .article-container {
       margin-top: 32px;
       padding-bottom: 32px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -59,15 +59,15 @@
         border: none;
       }
 
-      .teaser-data {
+      .article-data {
         &-date {
           letter-spacing: 0.5px;
           padding: 4px 0 10px;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 14px;
         }
-        &_title {
-          font-size: 25px;
+        &-title {
+          font-size: 20px;
           line-height: 35px;
         }
       }
@@ -76,13 +76,13 @@
 }
 
 @media (max-width: 1679px) {
-  .teaser {
-    .teaser-image {
+  .article {
+    .article-image {
       img {
         width: 100%;
       }
     }
-    .teaser-data {
+    .article-data {
       &_date {
         font-size: 11px;
         line-height: 11px;
@@ -99,9 +99,9 @@
     }
   }
 
-  .other-teaser {
-    .teaser-main-w3 {
-      .teaser-data {
+  .other-article {
+    .article {
+      .article-data {
         &_date {
           letter-spacing: 0.5px;
           font-size: 11px;
@@ -118,11 +118,14 @@
 }
 
 @media (max-width: 991px) {
-  .important_teaser {
-    .teaser-main-w3 {
+  .important-article {
+    .article {
       padding-bottom: 38px;
-      .teaser-data {
+      .article-data {
         max-width: 50%;
+        &-date {
+          padding-top: 0;
+        }
       }
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -130,41 +133,41 @@
 }
 
 @media (max-width: 767px) {
-  .important_teaser {
+  .important-article {
     margin-bottom: 20px;
-    .teaser-main-w3 {
+    .article {
       margin: 0;
-      .teaser-data {
+      .article-data {
         max-width: 100%;
       }
     }
   }
 
-  .feature-articles {
-    .teaser-data {
-      &_title {
+  .article-main-w3 {
+    .article-data {
+      &-title {
         font-size: 24px;
         line-height: 32px;
       }
-      &_body {
+      &-body {
         font-size: 16px;
         line-height: 26px;
       }
     }
   }
 
-  .other-teaser {
-    .teaser-main-w3 {
+  .other-article {
+    .article {
       margin: 20px 0 0 0;
       .article-image {
         order: 2;
         max-width: 41.66666667%;
       }
-      .teaser-data {
-        &_date {
+      .article-data {
+        &-date {
           padding: 0 0 10px;
         }
-        &_title {
+        &-title {
           font-weight: 600;
           font-size: 18px;
           line-height: 24px;

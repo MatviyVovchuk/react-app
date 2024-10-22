@@ -93,6 +93,22 @@ const Service = {
       throw error;
     }
   },
+
+  getTutorialDesign: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_OTHER_TUTORIAL_DESIGN_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch tutorial design");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching tutorial design:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

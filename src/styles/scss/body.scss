@@ -9,6 +9,10 @@ h1 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: $color-background-body;
@@ -17,6 +21,11 @@ body {
 .background-dark {
   padding: 20px 40px 40px 40px;
   background-color: $color-background-dark;
+}
+
+.whitearea {
+  padding: 60px 40px 40px 40px;
+  background-color: $color-background-light;
 }
 
 @media (min-width: 1680px) {

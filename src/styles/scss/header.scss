@@ -154,12 +154,11 @@ header {
     }
 
     &.open {
-      right: 10px;
-      position: absolute;
+      z-index: 10;
+      margin: 0px 0 auto auto;
       span {
         background-color: #000;
       }
-      margin: 20px 0 auto auto;
     }
   }
 

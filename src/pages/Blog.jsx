@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Service from "../services/Service";
 import Header from "../components/Header";
-import TeaserMainWithThree from "../components/Blocks/Teaser/TeaserMainWithThree";
+import ArticleMainWithThree from "../components/Blocks/Article/ArticleMainWithThree";
+import TutorialDesign from "../components/Blocks/TutorialDesign";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -25,9 +26,15 @@ function Blog() {
   }, []);
 
   return (
-    <div className="blog-container background-dark">
-      <h1 className="title blog-page-title">{pageTitle}</h1>
-      <TeaserMainWithThree />
+    <div className="blog-container">
+      <div className="background-dark">
+        <Header />
+        <h1 className="title blog-page-title">{pageTitle}</h1>
+        <ArticleMainWithThree />
+      </div>
+      <div className="whitearea">
+        <TutorialDesign />
+      </div>
     </div>
   );
 }

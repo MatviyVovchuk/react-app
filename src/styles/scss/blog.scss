@@ -5,12 +5,37 @@
     text-transform: uppercase;
     font-weight: 1000;
     text-align: center;
-    margin: 20px auto 60px auto;
+    margin: 20px 0px 60px;
     line-height: 1;
-    font-size: 11vw;
-    padding: 40px 0;
+    font-size: 14vw;
+    padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
+  }
+}
+
+@media (max-width: 767px) {
+  .blog-container {
+    .title {
+      margin: 0px 0px 28px 0px;
+      font-size: 16vw;
+    }
+  }
+}
+
+@media (max-width: 462px) {
+  .blog-container {
+    .title {
+      font-size: 15vw;
+    }
+  }
+}
+
+@media (max-width: 357px) {
+  .blog-container {
+    .title {
+      font-size: 14vw;
+    }
   }
 }
