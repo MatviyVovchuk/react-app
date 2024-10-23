@@ -109,6 +109,22 @@ const Service = {
       throw error;
     }
   },
+
+  getFirstStaticBlock: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_STATIC_BLOCK_1_DESIGN_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch first static block");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching first static block:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

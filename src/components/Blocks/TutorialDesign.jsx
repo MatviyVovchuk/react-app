@@ -15,6 +15,7 @@ function TutorialDesign() {
     infinite: true,
     slidesToShow: 4,
     swipeToSlide: true,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -60,8 +61,6 @@ function TutorialDesign() {
             })),
           });
         }
-
-        console.log(designArticle);
       } catch (error) {
         console.error("Error fetching tutorial design:", error);
       }
@@ -69,10 +68,6 @@ function TutorialDesign() {
 
     fetchTutorialDesign();
   }, []);
-
-  if (designArticle.designArticle.length === 0) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="tutorial-design-container">

@@ -1,0 +1,134 @@
+@import "variables";
+
+.static-block-container.dark {
+  padding: 40px;
+  margin: auto;
+}
+
+.static-block-container {
+  .static-block-data {
+    height: max-content;
+    padding: 0 40px;
+    align-self: center;
+
+    &-title {
+      font-weight: 800;
+      font-size: 4vw;
+      line-height: 65px;
+      margin-bottom: 30px;
+      color: $color-title-light;
+    }
+    &-body {
+      padding-right: 50px;
+      margin-bottom: 50px;
+      font-size: 2vw;
+      color: $color-text-light-muted;
+    }
+    &-read-more {
+      a {
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+        font-weight: 400;
+        color: $color-title-light;
+        border: 2px solid white;
+        padding: 15px 75px;
+      }
+    }
+  }
+  .static-block-image {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 500px;
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .static-block-container {
+    gap: 50px;
+    .static-block-data {
+      &-title {
+        font-size: 40px;
+        line-height: normal;
+        margin-bottom: 30px;
+      }
+      &-body {
+        padding-right: 0;
+        margin-bottom: 50px;
+        font-size: 25px;
+      }
+      &-read-more {
+        display: flex;
+        justify-content: center;
+        a {
+          font-size: 16px;
+          padding: 15px 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .static-block-container {
+    .static-block-data {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .static-block-container {
+    .static-block-data {
+      height: max-content;
+      align-self: center;
+
+      &-title {
+        font-size: 32px;
+      }
+      &-body {
+        font-size: 18px;
+      }
+    }
+    .static-block-image {
+      display: flex;
+      justify-content: center;
+      img {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .static-block-container {
+    .static-block-data {
+      height: max-content;
+      align-self: center;
+
+      &-title {
+        font-size: 26px;
+      }
+      &-body {
+        font-size: 18px;
+      }
+      &-read-more {
+        a {
+          font-size: 16px;
+          padding: 15px 20px;
+        }
+      }
+    }
+    .static-block-image {
+      display: flex;
+      justify-content: center;
+      img {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+}
