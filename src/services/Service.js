@@ -141,6 +141,22 @@ const Service = {
       throw error;
     }
   },
+
+  getArtikelTerbaru: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_ARTIKEL_TERBARU_DESIGN_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch artikel terbaru");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching artikel terbaru:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

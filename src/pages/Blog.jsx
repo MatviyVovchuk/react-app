@@ -5,6 +5,7 @@ import ArticleMainWithThree from "../components/Blocks/Article/ArticleMainWithTh
 import TutorialDesign from "../components/Blocks/TutorialDesign";
 import StaticBlock from "../components/Blocks/StaticBlock";
 import PilihanEditor from "../components/Blocks/PilihanEditor";
+import ArtikelTerbaru from "../components/Blocks/ArtikelTerbaru";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -85,6 +86,9 @@ function Blog() {
       </div>
       <div className="whitearea">
         <PilihanEditor />
+      </div>
+      <div className="whitearea">
+        <ArtikelTerbaru />
       </div>
     </div>
   );

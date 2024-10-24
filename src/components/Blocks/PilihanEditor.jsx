@@ -68,8 +68,6 @@ function PilihanEditor() {
     ],
   };
 
-  console.log(pilihanEditor);
-
   return (
     <div className="pilihan-editor-container">
       <div className="pilihan-editor-title"> {blockTitle} </div>
@@ -85,7 +83,6 @@ function PilihanEditor() {
                 articleTitle={article.articleTitle}
                 articleBody={article.articleBody}
               />
-              {/* {article.articleImage} */}
             </div>
           ))}
         </Slider>

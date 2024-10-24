@@ -1,15 +1,9 @@
 @import "variables";
+@import "mixin";
+
 .tutorial-design-container {
   .tutorial-design-title {
-    text-transform: uppercase;
-    color: #121212;
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-    padding: 0 20px;
-    opacity: 0.3;
+    @include teaserBlockTitle;
   }
   .tutorial-design-slider-container {
     .slick-list {
