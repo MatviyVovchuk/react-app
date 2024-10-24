@@ -11,7 +11,7 @@ function StaticBlock(props) {
   } = props;
 
   return (
-    <div className="static-block-container row dark">
+    <div className="static-block-container row">
       <div className="static-block-data col-lg-6 col-md-12">
         <div className="static-block-data-title">{blockTitle}</div>
         <div className="static-block-data-body">{blockBody}</div>

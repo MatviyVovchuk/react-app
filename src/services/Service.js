@@ -125,6 +125,22 @@ const Service = {
       throw error;
     }
   },
+
+  getPilihanEditor: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_PILIHAN_EDITOR_DESIGN_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch pilihan editor");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching pilihan editor:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

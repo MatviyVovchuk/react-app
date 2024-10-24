@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import ArticleMainWithThree from "../components/Blocks/Article/ArticleMainWithThree";
 import TutorialDesign from "../components/Blocks/TutorialDesign";
 import StaticBlock from "../components/Blocks/StaticBlock";
+import PilihanEditor from "../components/Blocks/PilihanEditor";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -66,7 +67,7 @@ function Blog() {
       <div className="whitearea">
         <TutorialDesign />
       </div>
-      <div className="">
+      <div className="dark">
         <StaticBlock
           blockTitle={firstStaticBlock.staticBlockData.field_title}
           blockImageUrl={firstStaticBlock.staticBlockImageUrl}
@@ -81,6 +82,9 @@ function Blog() {
             firstStaticBlock.staticBlockData.field_link.uri
           }
         />
+      </div>
+      <div className="whitearea">
+        <PilihanEditor />
       </div>
     </div>
   );
