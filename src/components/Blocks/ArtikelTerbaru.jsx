@@ -9,7 +9,7 @@ function ArtikelTerbaru() {
   useEffect(() => {
     const fetchPilihanEditor = async () => {
       try {
-        const data = await Service.getArtikelTerbaru();
+        const data = await Service.getLatestArcticles();
 
         if (data) {
           const dataImageUrls = await Promise.all(

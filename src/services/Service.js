@@ -126,6 +126,22 @@ const Service = {
     }
   },
 
+  getSecondStaticBlock: async () => {
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_STATIC_BLOCK_2_DESIGN_API_URL
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch second static block");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching second static block:", error);
+      throw error;
+    }
+  },
+
   getPilihanEditor: async () => {
     try {
       const response = await fetch(
@@ -142,10 +158,10 @@ const Service = {
     }
   },
 
-  getArtikelTerbaru: async () => {
+  getLatestArcticles: async () => {
     try {
       const response = await fetch(
-        import.meta.env.VITE_ARTIKEL_TERBARU_DESIGN_API_URL
+        import.meta.env.VITE_LATEST_ARTICLES_API_URL
       );
       if (!response.ok) {
         throw new Error("Failed to fetch artikel terbaru");

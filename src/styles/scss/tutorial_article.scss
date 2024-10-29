@@ -3,7 +3,7 @@
 
 .tutorial-design-container {
   .tutorial-design-title {
-    @include teaserBlockTitle;
+    @include blockArticlesTitle;
   }
   .tutorial-design-slider-container {
     .slick-list {

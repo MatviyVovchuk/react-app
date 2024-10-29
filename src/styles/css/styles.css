@@ -251,6 +251,11 @@ body {
   background-color: #ffffff;
 }
 
+.yellow {
+  padding: 20px 40px 40px 40px;
+  background-color: #ffd432;
+}
+
 @media (min-width: 1680px) {
   .container {
     max-width: 1440px;
@@ -486,6 +491,25 @@ header .header-social-container .header-social-links .social-link img {
     line-height: 24px !important;
   }
 }
+.yellow .static-block-container {
+  margin-top: 40px;
+}
+.yellow .static-block-container .static-block-data {
+  align-self: auto;
+}
+.yellow .static-block-container .static-block-data-title {
+  font-weight: 700;
+  color: #1a1b1f;
+}
+.yellow .static-block-container .static-block-data-body {
+  color: #1a1b1f;
+}
+.yellow .static-block-container .static-block-data-read-more a {
+  color: white;
+  border: 1px solid #1a1b1f;
+  background-color: #1a1b1f;
+}
+
 .static-block-container .static-block-data {
   height: max-content;
   padding: 0 40px;

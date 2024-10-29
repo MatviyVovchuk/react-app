@@ -14,6 +14,11 @@ function Blog() {
     staticBlockBody: "",
     staticBlockImageUrl: "",
   });
+  const [secondStaticBlock, setSecondStaticBlock] = useState({
+    staticBlockData: [],
+    staticBlockBody: "",
+    staticBlockImageUrl: "",
+  });
 
   useEffect(() => {
     const fetchTitle = async () => {
@@ -58,6 +63,31 @@ function Blog() {
     fetchFirstStaticBlock();
   }, []);
 
+  useEffect(() => {
+    const fetchSecondStaticBlock = async () => {
+      try {
+        const fStaticBlockData = await Service.getSecondStaticBlock();
+
+        if (fStaticBlockData) {
+          const blockDataImageUrl = await Service.getImageUrl(
+            fStaticBlockData.data.field_image.uri.url
+          );
+          setSecondStaticBlock({
+            staticBlockData: fStaticBlockData.data,
+            staticBlockBody: fStaticBlockData.data.body.processed.replace(
+              /<\/?[^>]+>/gi,
+              ""
+            ),
+            staticBlockImageUrl: blockDataImageUrl,
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching second static block:", error);
+      }
+    };
+    fetchSecondStaticBlock();
+  }, []);
+
   return (
     <div className="blog-container">
       <div className="dark">
@@ -86,6 +116,22 @@ function Blog() {
       </div>
       <div className="whitearea">
         <PilihanEditor />
+      </div>
+      <div className="yellow">
+        <StaticBlock
+          blockTitle={secondStaticBlock.staticBlockData.field_title}
+          blockImageUrl={secondStaticBlock.staticBlockImageUrl}
+          blockImageAlt={secondStaticBlock.staticBlockData.field_title}
+          blockBody={secondStaticBlock.staticBlockBody}
+          blockLink={
+            secondStaticBlock.staticBlockData.field_link &&
+            secondStaticBlock.staticBlockData.field_link.title
+          }
+          blockLinkUrl={
+            secondStaticBlock.staticBlockData.field_link &&
+            secondStaticBlock.staticBlockData.field_link.uri
+          }
+        />
       </div>
       <div className="whitearea">
         <ArtikelTerbaru />

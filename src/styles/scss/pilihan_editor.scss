@@ -3,7 +3,7 @@
 
 .pilihan-editor-container {
   .pilihan-editor-title {
-    @include teaserBlockTitle;
+    @include blockArticlesTitle;
   }
   .pilihan-editor-slider-container {
     .slick-list {

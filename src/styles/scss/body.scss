@@ -28,6 +28,11 @@ body {
   background-color: $color-background-light;
 }
 
+.yellow {
+  padding: 20px 40px 40px 40px;
+  background-color: $color-background-yellow;
+}
+
 @media (min-width: 1680px) {
   .container {
     max-width: $width-large-desktop;

@@ -1,5 +1,28 @@
 @import "variables";
 
+.yellow {
+  .static-block-container {
+    margin-top: 40px;
+    .static-block-data {
+      align-self: auto;
+      &-title {
+        font-weight: 700;
+        color: $color-title-dark;
+      }
+      &-body {
+        color: $color-title-dark;
+      }
+      &-read-more {
+        a {
+          color: white;
+          border: 1px solid $color-title-dark;
+          background-color: $color-title-dark;
+        }
+      }
+    }
+  }
+}
+
 .static-block-container {
   .static-block-data {
     height: max-content;
