@@ -423,6 +423,78 @@ header .header-social-container .header-social-links .social-link img {
     display: none;
   }
 }
+.industri-design-container {
+  padding-top: 40px;
+}
+.industri-design-container .industri-design-title {
+  text-transform: uppercase;
+  color: #121212;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+  opacity: 0.3;
+  color: #ffffff;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track {
+  display: flex;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide {
+  height: inherit;
+  border-right: 1px solid rgba(128, 128, 128, 0.5);
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article {
+  padding: 0 20px;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-image {
+  aspect-ratio: 16/9;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-data-date {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 15px;
+  color: #ffffff;
+  opacity: 0.5;
+  padding: 16px 0 10px;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-data-title {
+  color: #ffffff;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+.industri-design-container .industri-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-data-body {
+  padding-top: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+@media (max-width: 1680px) {
+  .industri-design-container .industri-design-slider-container .slick-list .slick-slide .article-container .article-data-title {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+}
+@media (max-width: 767px) {
+  .industri-design-container .industri-design-slider-container .slick-list .slick-slide .article-container .article-data-title {
+    font-size: 18px !important;
+    line-height: 24px !important;
+  }
+}
 .pilihan-editor-container .pilihan-editor-title {
   text-transform: uppercase;
   color: #121212;
@@ -456,7 +528,7 @@ header .header-social-container .header-social-links .social-link img {
   font-weight: normal;
   font-size: 14px;
   line-height: 15px;
-  color: #000000;
+  color: #1a1b1f;
   opacity: 0.5;
   padding: 16px 0 10px;
 }
@@ -646,7 +718,7 @@ header .header-social-container .header-social-links .social-link img {
   font-weight: normal;
   font-size: 14px;
   line-height: 15px;
-  color: #000000;
+  color: #1a1b1f;
   opacity: 0.5;
   padding: 16px 0 10px;
 }
@@ -656,6 +728,17 @@ header .header-social-container .header-social-links .social-link img {
   line-height: 35px;
   letter-spacing: 0.3px;
   font-weight: 600;
+}
+.tutorial-design-container .tutorial-design-slider-container .slick-list .slick-track .slick-slide .article-container .article-data-body {
+  padding-top: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: #1a1b1f;
+  opacity: 0.7;
 }
 
 @media (max-width: 1680px) {

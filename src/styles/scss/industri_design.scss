@@ -1,28 +1,32 @@
 @import "variables";
 @import "mixin";
 
-.tutorial-design-container {
-  .tutorial-design-title {
+.industri-design-container {
+  padding-top: 40px;
+  .industri-design-title {
     @include blockArticlesTitle;
+    color: $color-title-light;
   }
-  .tutorial-design-slider-container {
+  .industri-design-slider-container {
     .slick-list {
       .slick-track {
         display: flex;
         .slick-slide {
           height: inherit;
-          border-right: 1px solid #e5e5e5;
+          border-right: 1px solid rgb(128, 128, 128, 0.5);
           .article-container {
             .article {
               padding: 0 20px;
               &-image {
+                aspect-ratio: 16/9;
                 img {
+                  object-fit: cover;
                   width: 100%;
-                  height: auto;
+                  height: 100%;
                 }
               }
               &-data {
-                @include blockArticlesData($color-title-dark);
+                @include blockArticlesData($color-title-light);
               }
             }
           }
@@ -31,18 +35,17 @@
     }
   }
 }
-
 @media (max-width: 1680px) {
-  .tutorial-design-container {
-    .tutorial-design-slider-container {
+  .industri-design-container {
+    .industri-design-slider-container {
       .slick-list {
         .slick-slide {
           .article-container {
             .article {
-              .article-data {
+              &-data {
                 &-title {
-                  font-size: 22px;
-                  line-height: 30px;
+                  font-size: 22px !important;
+                  line-height: 30px !important;
                 }
               }
             }
@@ -52,18 +55,17 @@
     }
   }
 }
-
 @media (max-width: 767px) {
-  .tutorial-design-container {
-    .tutorial-design-slider-container {
+  .industri-design-container {
+    .industri-design-slider-container {
       .slick-list {
         .slick-slide {
           .article-container {
             .article {
-              .article-data {
+              &-data {
                 &-title {
-                  font-size: 18px;
-                  line-height: 24px;
+                  font-size: 18px !important;
+                  line-height: 24px !important;
                 }
               }
             }

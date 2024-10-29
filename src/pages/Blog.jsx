@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Service from "../services/Service";
 import Header from "../components/Header";
-import ArticleMainWithThree from "../components/Blocks/Article/ArticleMainWithThree";
-import TutorialDesign from "../components/Blocks/TutorialDesign";
+import ArticleMainWithThree from "../components/Blocks/ArticleMainWithThree";
+import TutorialDesign from "../components/Blocks/Slider/TutorialDesign";
 import StaticBlock from "../components/Blocks/StaticBlock";
-import PilihanEditor from "../components/Blocks/PilihanEditor";
+import PilihanEditor from "../components/Blocks/Slider/PilihanEditor";
 import ArtikelTerbaru from "../components/Blocks/ArtikelTerbaru";
+import IndustriDesign from "../components/Blocks/Slider/IndustriDesign";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -135,6 +136,9 @@ function Blog() {
       </div>
       <div className="whitearea">
         <ArtikelTerbaru />
+      </div>
+      <div className="dark">
+        <IndustriDesign />
       </div>
     </div>
   );

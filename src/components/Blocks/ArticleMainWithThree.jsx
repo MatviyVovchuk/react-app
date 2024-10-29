@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Service from "../../../services/Service";
-import Article from "./Article";
+import Service from "../../services/Service";
+import Article from "../Article/Article";
 
 function ArticleMainWithThree() {
   const [articles, setArticles] = useState({

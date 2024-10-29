@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
-import Article from "./Article/Article";
+import Article from "../Article/Article";
 
 function ArtikelTerbaru() {
   const [artikelTerbaru, setArtikelTerbaru] = useState({ artikelTerbaru: [] });
