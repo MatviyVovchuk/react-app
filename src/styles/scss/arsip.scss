@@ -1,0 +1,60 @@
+@import "variables";
+@import "mixin";
+.arsip-container {
+  padding-left: 20px;
+  .arsip {
+    &-title {
+      @include blockArticlesTitle;
+      // padding: 0 20px;
+    }
+    &-articles {
+      .article-container {
+        width: inherit;
+        padding-left: 20px;
+        &:first-child {
+          .article {
+            padding: 10px 0 24px 24px;
+          }
+        }
+        &:last-child {
+          .article {
+            padding: 24px 0 10px 24px;
+            border-bottom: none;
+          }
+        }
+        a {
+          width: inherit;
+        }
+        .article {
+          width: inherit;
+          border-bottom: 1px solid #e5e5e5;
+          border-left: 1px solid #e5e5e5;
+          text-align: left;
+          padding: 24px 0 24px 24px;
+          margin-top: 0;
+          &-image {
+            display: none;
+          }
+          &-data {
+            padding: 0;
+            &-date {
+              padding: 0 0 6px;
+              color: $color-text-dark-muted;
+              font-size: 14px;
+            }
+            &-title {
+              font-weight: 400;
+              font-size: 20px;
+              line-height: 30px;
+              letter-spacing: 0.4px;
+              color: #121212;
+            }
+            &-body {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

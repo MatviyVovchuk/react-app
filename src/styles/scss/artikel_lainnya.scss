@@ -1,0 +1,143 @@
+@import "variables";
+@import "mixin";
+
+.artikel-lainnya-container {
+  margin-bottom: $margin-large;
+  .artikel-lainnya {
+    &-title {
+      @include blockArticlesTitle;
+    }
+
+    &-articles {
+      .article-container {
+        margin-top: $margin-large;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      .article {
+        padding: 0 0 0 $padding-small;
+
+        &-data {
+          @include blockArticlesData($color-title-dark);
+        }
+
+        &-image {
+          margin-top: $margin-medium;
+          order: 2;
+          aspect-ratio: 16/9;
+
+          img {
+            object-fit: cover;
+            max-height: 214px;
+            width: 100%;
+          }
+        }
+        &-data {
+          &-date {
+            padding: 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+  .artikel-lainnya-container {
+    .artikel-lainnya {
+      &-articles {
+        .article {
+          &-data {
+            &-body {
+              padding-top: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .artikel-lainnya-container {
+    margin-bottom: 36px;
+    .artikel-lainnya {
+      &-articles {
+        .article {
+          &-image {
+            img {
+              max-height: 174px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .artikel-lainnya-container {
+    .artikel-lainnya {
+      &-title {
+        padding: 0 0 0 10px;
+      }
+
+      &-articles {
+        .article-container {
+          padding-bottom: 16px;
+          margin-top: 16px;
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        .article {
+          padding-left: 0;
+          &-image {
+            margin-top: $margin-small;
+            img {
+              max-height: 136px;
+            }
+          }
+          &-data {
+            &-body {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .artikel-lainnya-container {
+    .artikel-lainnya {
+      &-articles {
+        .article {
+          &-image {
+            img {
+              max-height: 84px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .artikel-lainnya-container {
+    .artikel-lainnya {
+      &-articles {
+        .article {
+          &-image {
+            img {
+              max-height: 63px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

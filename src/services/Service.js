@@ -173,6 +173,48 @@ const Service = {
       throw error;
     }
   },
+
+  getArsip: async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_ARSIP_API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch arsip");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching arsip:", error);
+      throw error;
+    }
+  },
+
+  getSidebarImage: async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_SIDEBAR_IMAGE_API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch sidebar image");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching sidebar image:", error);
+      throw error;
+    }
+  },
+
+  getTestimonials: async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_TESTIMOIALS_API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch testimonials");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;

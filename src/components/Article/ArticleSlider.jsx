@@ -39,8 +39,6 @@ function ArticleSlider(props) {
     ],
   };
 
-  console.log(articles);
-
   return (
     <div className={containerClass}>
       <div className={titleClass}> {blockTitle} </div>

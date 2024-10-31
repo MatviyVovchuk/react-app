@@ -7,6 +7,10 @@ import StaticBlock from "../components/Blocks/StaticBlock";
 import PilihanEditor from "../components/Blocks/Slider/PilihanEditor";
 import ArtikelTerbaru from "../components/Blocks/ArtikelTerbaru";
 import IndustriDesign from "../components/Blocks/Slider/IndustriDesign";
+import ArtikelLainnya from "../components/Blocks/ArtikelLainnya";
+import Arsip from "../components/Blocks/Arsip";
+import Testimonial from "../components/Blocks/Testimonial";
+import SidebarImage from "../components/Blocks/SidebarImage";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -139,6 +143,18 @@ function Blog() {
       </div>
       <div className="dark">
         <IndustriDesign />
+      </div>
+      <div className="whitearea">
+        <div className="other-blocks-container row">
+          <div className="left-container col-lg-8">
+            <ArtikelLainnya />
+          </div>
+          <div className="right-container col-lg-4">
+            <Arsip />
+            <SidebarImage />
+            <Testimonial />
+          </div>
+        </div>
       </div>
     </div>
   );
