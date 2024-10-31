@@ -11,6 +11,7 @@ import ArtikelLainnya from "../components/Blocks/ArtikelLainnya";
 import Arsip from "../components/Blocks/Arsip";
 import Testimonial from "../components/Blocks/Testimonial";
 import SidebarImage from "../components/Blocks/SidebarImage";
+import BackToTop from "../components/BackToTop";
 
 function Blog() {
   const [pageTitle, setPageTitle] = useState("");
@@ -29,6 +30,7 @@ function Blog() {
     const fetchTitle = async () => {
       try {
         const titleData = await Service.getPageTitle();
+
         if (titleData) {
           const rawHtmlTitle = titleData?.data?.[0]?.body?.value;
           if (rawHtmlTitle) {
@@ -94,7 +96,7 @@ function Blog() {
   }, []);
 
   return (
-    <div className="blog-container">
+    <div className="blog-container container">
       <div className="dark">
         <Header />
         <h1 className="title blog-page-title">{pageTitle}</h1>
@@ -156,6 +158,7 @@ function Blog() {
           </div>
         </div>
       </div>
+      <BackToTop />
     </div>
   );
 }

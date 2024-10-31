@@ -159,10 +159,18 @@
   .important-article {
     margin-bottom: 20px;
   }
-  .important-article .article {
+  .important-article .article-container {
     margin: 0;
   }
-  .important-article .article .article-data {
+  .important-article .article-container .article {
+    margin: 0;
+  }
+  .important-article .article-container .article .article-image {
+    padding: 0;
+  }
+  .important-article .article-container .article .article-data {
+    padding: 0;
+    margin-top: 20px;
     max-width: 100%;
   }
   .article-main-w3 .article-data-title {
@@ -173,17 +181,24 @@
     font-size: 16px;
     line-height: 26px;
   }
-  .other-article .article {
+  .other-article .article-container {
+    margin: 0;
+  }
+  .other-article .article-container .article {
     margin: 20px 0 0 0;
   }
-  .other-article .article .article-image {
+  .other-article .article-container .article .article-image {
+    padding: 0;
     order: 2;
     max-width: 41.66666667%;
   }
-  .other-article .article .article-data-date {
+  .other-article .article-container .article .article-data {
+    padding: 0;
+  }
+  .other-article .article-container .article .article-data-date {
     padding: 0 0 10px;
   }
-  .other-article .article .article-data-title {
+  .other-article .article-container .article .article-data-title {
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
@@ -361,33 +376,42 @@
     line-height: 24px;
   }
 }
+.blog-container {
+  max-width: 1280px;
+  padding: 0;
+}
 .blog-container .title {
   text-transform: uppercase;
-  font-weight: 1000;
+  font-weight: 700;
   text-align: center;
   margin: 20px 0px 60px;
   line-height: 1;
-  font-size: 14vw;
+  font-size: 285px;
   padding: 10px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
+@media (max-width: 1680px) {
+  .blog-container .title {
+    font-size: 250px;
+  }
+}
+@media (max-width: 1280px) {
+  .blog-container .title {
+    font-size: 18.5vw;
+  }
+}
 @media (max-width: 767px) {
   .blog-container .title {
     margin: 0px 0px 28px 0px;
-    font-size: 16vw;
+    font-size: 19vw;
   }
 }
-@media (max-width: 462px) {
+@media (max-width: 416px) {
   .blog-container .title {
-    font-size: 15vw;
-  }
-}
-@media (max-width: 357px) {
-  .blog-container .title {
-    font-size: 14vw;
+    font-size: 18vw;
   }
 }
 * {
@@ -428,9 +452,13 @@ body {
     max-width: 1440px;
   }
 }
+@media (max-width: 767px) {
+  .dark {
+    padding: 0 20px;
+  }
+}
 @charset "UTF-8";
 header {
-  padding: 20px 40px 0 40px;
   background-color: #121212;
   margin: auto !important;
 }
