@@ -52,10 +52,6 @@ function ArticleMainWithThree() {
     fetchTeasers();
   }, []);
 
-  if (!articles.importantArticle || articles.otherArticles.length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="feature-article row">
       <div className="important-article col-lg-6 col-md-12">

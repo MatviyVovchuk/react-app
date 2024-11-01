@@ -1,8 +1,12 @@
 @import "variables";
 @import "mixin";
 
+.industri-design-padding {
+  padding: 20px 10px;
+}
+
 .industri-design-container {
-  padding-top: 40px;
+  // padding-top: 40px;
   .industri-design-title {
     @include blockArticlesTitle;
     color: $color-title-light;
@@ -62,7 +66,11 @@
         .slick-slide {
           .article-container {
             .article {
+              &-image {
+                padding: 0;
+              }
               &-data {
+                padding: 0;
                 &-title {
                   font-size: 18px !important;
                   line-height: 24px !important;

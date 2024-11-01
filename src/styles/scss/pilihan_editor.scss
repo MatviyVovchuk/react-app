@@ -53,6 +53,7 @@
     }
   }
 }
+
 @media (max-width: 767px) {
   .pilihan-editor-container {
     .pilihan-editor-slider-container {
@@ -60,7 +61,11 @@
         .slick-slide {
           .article-container {
             .article {
+              &-image {
+                padding: 0;
+              }
               &-data {
+                padding: 0;
                 &-title {
                   font-size: 18px !important;
                   line-height: 24px !important;

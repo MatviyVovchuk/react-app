@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
+import "../styles/scss/back_to_top.scss";
 
 function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 0) {
       setIsVisible(true);
+      setIsFading(false);
     } else {
-      setIsVisible(false);
+      setIsFading(true);
+      setTimeout(() => setIsVisible(false), 300);
     }
   };
 
@@ -26,11 +30,15 @@ function BackToTop() {
   }, []);
 
   return (
-    isVisible && (
-      <div onClick={scrollToTop} className="scroll_button">
-        Back to Top ↑
-      </div>
-    )
+    <div
+      onClick={scrollToTop}
+      className={`scroll-button ${isVisible ? "visible" : ""} ${
+        isFading ? "fade-out" : ""
+      }`}
+    >
+      <span className="scroll-button-text">Back to Top</span>
+      <i className="fa-solid fa-arrow-up"></i>
+    </div>
   );
 }
 

@@ -1,8 +1,12 @@
 @import "variables";
 
+.static-block-padding {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
 .yellow {
   .static-block-container {
-    margin-top: 40px;
     .static-block-data {
       align-self: auto;
       &-title {
@@ -30,8 +34,8 @@
     align-self: center;
 
     &-title {
-      font-weight: 800;
-      font-size: 4vw;
+      font-weight: 700;
+      font-size: 3vw;
       line-height: 65px;
       margin-bottom: 30px;
       color: $color-title-light;
@@ -51,14 +55,16 @@
         color: $color-title-light;
         border: 2px solid white;
         padding: 15px 75px;
+        margin-bottom: 40px;
       }
     }
   }
   .static-block-image {
     display: flex;
     justify-content: center;
+    margin-top: auto;
     img {
-      height: 500px;
+      max-height: 650px;
     }
   }
 }
@@ -67,6 +73,7 @@
   .static-block-container {
     gap: 50px;
     .static-block-data {
+      padding: 0 12px !important;
       &-title {
         font-size: 40px;
         line-height: normal;
@@ -83,6 +90,7 @@
         a {
           font-size: 16px;
           padding: 15px 50px;
+          margin-bottom: 0px;
         }
       }
     }

@@ -5,7 +5,6 @@
   .arsip {
     &-title {
       @include blockArticlesTitle;
-      // padding: 0 20px;
     }
     &-articles {
       .article-container {
@@ -53,6 +52,21 @@
               display: none;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .arsip-container {
+    padding: 0 12px;
+    .arsip-articles {
+      padding: 0;
+      .article-container {
+        .article {
+          padding: 10px 0 24px !important;
+          border-left: 0;
         }
       }
     }

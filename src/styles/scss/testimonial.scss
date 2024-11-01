@@ -83,6 +83,20 @@
 @media (max-width: 991px) {
   .testimonial-container {
     margin-bottom: $margin-large;
-    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-container {
+    padding: 0 12px;
+    .testimonial-user-feedback {
+      padding: 0;
+      .feedback-container {
+        .feedback {
+          padding: 10px 0 24px !important;
+          border-left: 0;
+        }
+      }
+    }
   }
 }

@@ -25,10 +25,6 @@ function BurgerMenu(props) {
     fetchBurgerMenuLinks();
   }, []);
 
-  if (menu.menuLinks.length === 0 || menu.socialLinks.length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     isBurgerOpen && (
       <div className={"header-burger-menu " + (isBurgerOpen ? "open" : "")}>

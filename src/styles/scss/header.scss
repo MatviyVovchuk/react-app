@@ -74,6 +74,7 @@ header {
       height: 100vh;
       z-index: 9;
       overflow: auto;
+
       a {
         display: block;
         width: 100%;
@@ -154,7 +155,8 @@ header {
 
     &.open {
       z-index: 10;
-      margin: 0px 0 auto auto;
+      margin: 15px 0 auto auto;
+
       span {
         background-color: #000;
       }

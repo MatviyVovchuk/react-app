@@ -105,7 +105,7 @@ function Blog() {
       <div className="whitearea">
         <TutorialDesign />
       </div>
-      <div className="dark">
+      <div className="dark static-block-padding">
         <StaticBlock
           blockTitle={firstStaticBlock.staticBlockData.field_title}
           blockImageUrl={firstStaticBlock.staticBlockImageUrl}
@@ -124,7 +124,7 @@ function Blog() {
       <div className="whitearea">
         <PilihanEditor />
       </div>
-      <div className="yellow">
+      <div className="yellow static-block-padding">
         <StaticBlock
           blockTitle={secondStaticBlock.staticBlockData.field_title}
           blockImageUrl={secondStaticBlock.staticBlockImageUrl}
@@ -140,9 +140,9 @@ function Blog() {
           }
         />
       </div>
-      <div className="whitearea">
+      {/* <div className="whitearea">
         <ArtikelTerbaru />
-      </div>
+      </div> */}
       <div className="dark">
         <IndustriDesign />
       </div>
