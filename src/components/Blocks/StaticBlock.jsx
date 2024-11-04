@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 /**
  * StaticBlock component displays a block with a title, body, an image, and a link.
@@ -39,5 +40,15 @@ function StaticBlock(props) {
     </div>
   );
 }
+
+// Define PropTypes for the component
+StaticBlock.propTypes = {
+  blockTitle: PropTypes.string,
+  blockImageUrl: PropTypes.string,
+  blockImageAlt: PropTypes.string,
+  blockBody: PropTypes.string,
+  blockLink: PropTypes.string,
+  blockLinkUrl: PropTypes.string,
+};
 
 export default StaticBlock;

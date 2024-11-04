@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Service from "../../services/Service";
 
 /**
@@ -57,5 +58,10 @@ function SocialMedia(props) {
     )
   );
 }
+
+// Define PropTypes for the component
+SocialMedia.propTypes = {
+  isBurgerOpen: PropTypes.bool,
+};
 
 export default SocialMedia;

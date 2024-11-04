@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 /**
  * UserFeedback component displays feedback from a user.
@@ -32,5 +33,13 @@ function UserFeedback(props) {
     </div>
   );
 }
+
+// Define PropTypes for the component
+UserFeedback.propTypes = {
+  userFeedbackImageUrl: PropTypes.string,
+  userFeedbackImageAlt: PropTypes.string,
+  userFeedbackRemember: PropTypes.string,
+  userFeedbackBody: PropTypes.string,
+};
 
 export default UserFeedback;

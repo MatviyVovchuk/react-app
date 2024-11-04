@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Service from "../../services/Service";
 
 /**
@@ -51,5 +52,11 @@ function Menu(props) {
     )
   );
 }
+
+// Define PropTypes for the component
+Menu.propTypes = {
+  isBurgerOpen: PropTypes.bool,
+  children: PropTypes.node,
+};
 
 export default Menu;

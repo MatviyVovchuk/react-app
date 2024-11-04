@@ -1,6 +1,7 @@
 import React from "react";
 import Article from "./Article";
 import Slider from "react-slick";
+import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -73,5 +74,22 @@ function ArticleSlider(props) {
     </div>
   );
 }
+
+// Define PropTypes for the component
+ArticleSlider.propTypes = {
+  containerClass: PropTypes.string,
+  titleClass: PropTypes.string,
+  blockTitle: PropTypes.string,
+  sliderClass: PropTypes.string,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      articleLink: PropTypes.string,
+      articleImage: PropTypes.string,
+      articleTitle: PropTypes.string,
+      articleDate: PropTypes.string,
+      articleBody: PropTypes.string,
+    })
+  ).isRequired,
+};
 
 export default ArticleSlider;

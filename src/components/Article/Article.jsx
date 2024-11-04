@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 /**
  * Article component to display an article with an image, title, date, and body.
@@ -51,5 +52,17 @@ function Article(props) {
     </div>
   );
 }
+
+// Define PropTypes for the component
+Article.propTypes = {
+  articleLink: PropTypes.string,
+  articleImageUrl: PropTypes.string,
+  articleImageAlt: PropTypes.string,
+  articleDate: PropTypes.string,
+  articleTitle: PropTypes.string,
+  articleBody: PropTypes.string,
+  articleImageClass: PropTypes.string,
+  articleDataClass: PropTypes.string,
+};
 
 export default Article;

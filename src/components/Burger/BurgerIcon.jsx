@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 /**
  * BurgerIcon component renders a hamburger menu icon.
@@ -19,5 +20,11 @@ function BurgerIcon(props) {
     </div>
   );
 }
+
+// Define PropTypes for the component
+BurgerIcon.propTypes = {
+  onClick: PropTypes.func,
+  isOpen: PropTypes.bool,
+};
 
 export default BurgerIcon;

@@ -19,9 +19,9 @@ import BackToTop from "../components/BackToTop";
  * @returns {JSX.Element} The rendered blog component.
  */
 function Blog() {
-  const [pageTitle, setPageTitle] = useState(""); // State to hold the page title
-  const [firstStaticBlock, setFirstStaticBlock] = useState({}); // State for the first static block
-  const [secondStaticBlock, setSecondStaticBlock] = useState({}); // State for the second static block
+  const [pageTitle, setPageTitle] = useState("");
+  const [firstStaticBlock, setFirstStaticBlock] = useState({});
+  const [secondStaticBlock, setSecondStaticBlock] = useState({});
 
   // Fetch the page title from the service
   useEffect(() => {
@@ -33,7 +33,7 @@ function Blog() {
           const cleanTitle = rawHtmlTitle
             ? rawHtmlTitle.replace(/<\/?[^>]+>/gi, "")
             : "";
-          setPageTitle(cleanTitle); // Set the cleaned title
+          setPageTitle(cleanTitle);
         }
       } catch (error) {
         console.error("Error fetching page title:", error);

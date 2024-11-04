@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Service from "../../services/Service";
 
 /**
@@ -8,7 +9,8 @@ import Service from "../../services/Service";
  * @param {boolean} props.isBurgerOpen - Indicates if the burger menu is open.
  * @returns {JSX.Element|null} The rendered BurgerMenu or null if closed.
  */
-function BurgerMenu({ isBurgerOpen }) {
+function BurgerMenu(props) {
+  const { isBurgerOpen } = props;
   const [menu, setMenu] = useState({ menuLinks: [], socialLinks: [] });
 
   useEffect(() => {
@@ -65,5 +67,10 @@ function BurgerMenu({ isBurgerOpen }) {
     )
   );
 }
+
+// Define PropTypes for the component
+BurgerMenu.propTypes = {
+  isBurgerOpen: PropTypes.bool,
+};
 
 export default BurgerMenu;
