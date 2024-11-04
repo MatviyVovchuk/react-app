@@ -2,33 +2,42 @@ import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 import Article from "../Article/Article";
 
+/**
+ * ArticleMainWithThree component to fetch and display an important article
+ * along with other related articles.
+ *
+ * @returns {JSX.Element} The rendered ArticleMainWithThree component.
+ */
 function ArticleMainWithThree() {
   const [articles, setArticles] = useState({
-    importantArticle: [],
+    importantArticle: {},
     otherArticles: [],
   });
 
   useEffect(() => {
+    // Function to fetch articles and their images
     const fetchTeasers = async () => {
       try {
-        const responseImportant = await Service.getImportantTeser();
+        // Fetch important and other articles
+        const responseImportant = await Service.getImportantTeaser();
         const responseOther = await Service.getOtherTeasers();
 
+        // Get image URL for the important article
         const importantImageUrl = await Service.getImageUrl(
           responseImportant[0].field_image_1
         );
 
+        // Get image URLs for other articles concurrently
         const otherImageUrls = await Promise.all(
-          responseOther.map((item) => {
-            return Service.getImageUrl(item.field_image_1);
-          })
+          responseOther.map((item) => Service.getImageUrl(item.field_image_1))
         );
 
+        // Check if responses are valid before setting state
         if (responseImportant && responseOther) {
           setArticles({
             importantArticle: {
               articleImages: importantImageUrl,
-              articleeDate: responseImportant[0].field_date,
+              articleDate: responseImportant[0].field_date,
               articleBody: responseImportant[0].body.replace(
                 /<\/?[^>]+>/gi,
                 ""
@@ -38,7 +47,7 @@ function ArticleMainWithThree() {
             },
             otherArticles: responseOther.map((item, index) => ({
               articleImages: otherImageUrls[index],
-              articleeDate: item.field_date,
+              articleDate: item.field_date,
               articleTitle: item.title_1,
               articleLink: item.view_node,
             })),
@@ -59,7 +68,7 @@ function ArticleMainWithThree() {
           articleLink={articles.importantArticle.articleLink}
           articleImageUrl={articles.importantArticle.articleImages}
           articleImageAlt={articles.importantArticle.articleTitle}
-          articleDate={articles.importantArticle.articleeDate}
+          articleDate={articles.importantArticle.articleDate}
           articleTitle={articles.importantArticle.articleTitle}
           articleBody={articles.importantArticle.articleBody}
           articleImageClass="col-lg-12 col-md-6"
@@ -73,7 +82,7 @@ function ArticleMainWithThree() {
             articleLink={article.articleLink}
             articleImageUrl={article.articleImages}
             articleImageAlt={article.articleTitle}
-            articleDate={article.articleeDate}
+            articleDate={article.articleDate}
             articleTitle={article.articleTitle}
             articleBody={article.articleBody}
             articleImageClass="col-lg-5 col-md-3"

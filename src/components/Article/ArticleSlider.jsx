@@ -4,10 +4,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+/**
+ * ArticleSlider component to display a slider of articles.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.containerClass - The class for the container.
+ * @param {string} props.titleClass - The class for the title.
+ * @param {string} props.blockTitle - The title of the slider block.
+ * @param {string} props.sliderClass - The class for the slider.
+ * @param {Array} props.articles - An array of article objects to display in the slider.
+ * @returns {JSX.Element} The rendered ArticleSlider component.
+ */
 function ArticleSlider(props) {
   const { containerClass, titleClass, blockTitle, sliderClass, articles } =
     props;
 
+  // Slider settings for react-slick
   const sliderSettings = {
     dots: false,
     infinite: true,

@@ -1,6 +1,3 @@
-.arsip-container {
-  padding-left: 20px;
-}
 .arsip-container .arsip-title {
   text-transform: uppercase;
   color: #121212;
@@ -14,7 +11,7 @@
 }
 .arsip-container .arsip-articles .article-container {
   width: inherit;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .arsip-container .arsip-articles .article-container:first-child .article {
   padding: 10px 0 24px 24px;
@@ -59,6 +56,9 @@
 @media (max-width: 767px) {
   .arsip-container {
     padding: 0 12px;
+  }
+  .arsip-container .arsip-title {
+    padding: 0;
   }
   .arsip-container .arsip-articles {
     padding: 0;
@@ -217,6 +217,13 @@
     line-height: 24px;
   }
 }
+.other-blocks-container .left-container {
+  padding-right: 30px;
+}
+.other-blocks-container .right-container {
+  padding-left: 30px;
+}
+
 .artikel-lainnya-container {
   margin-bottom: 60px;
 }
@@ -286,6 +293,12 @@
   }
 }
 @media (max-width: 991px) {
+  .left-container {
+    padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
+  .right-container {
+    padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
   .artikel-lainnya-container {
     margin-bottom: 36px;
   }
@@ -294,6 +307,12 @@
   }
 }
 @media (max-width: 767px) {
+  .other-blocks-container {
+    margin: 0;
+  }
+  .other-blocks-container .left-container {
+    padding: 0;
+  }
   .artikel-lainnya-container .artikel-lainnya-title {
     padding: 0 0 0 10px;
   }
@@ -392,6 +411,9 @@
   }
 }
 @media (max-width: 767px) {
+  .artikel-terbaru-container .artikel-terbaru-articles {
+    margin: 0;
+  }
   .artikel-terbaru-container .artikel-terbaru-articles .article-container .article-data-title {
     font-size: 18px;
     line-height: 24px;
@@ -473,10 +495,6 @@ h1 {
 
 a {
   text-decoration: none;
-}
-
-.app-container {
-  overflow: hidden;
 }
 
 body {
@@ -678,6 +696,10 @@ header .header-social-container .header-social-links .social-link img {
   padding: 20px 10px;
 }
 
+.industri-design-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .industri-design-container .industri-design-title {
   text-transform: uppercase;
   color: #121212;
@@ -742,6 +764,9 @@ header .header-social-container .header-social-links .social-link img {
   }
 }
 @media (max-width: 767px) {
+  .industri-design-container .industri-design-slider-container .slick-list .slick-slide .article-container .article {
+    padding: 0 10px;
+  }
   .industri-design-container .industri-design-slider-container .slick-list .slick-slide .article-container .article-image {
     padding: 0;
   }
@@ -839,7 +864,7 @@ header .header-social-container .header-social-links .social-link img {
 
 @media (max-width: 767px) {
   .other-blocks-container .right-container .sidebar-image {
-    margin: 30px -10px;
+    margin: 30px -22px;
   }
 }
 .static-block-padding {
@@ -976,9 +1001,6 @@ header .header-social-container .header-social-links .social-link img {
     overflow: hidden;
   }
 }
-.testimonial-container {
-  padding-left: 20px;
-}
 .testimonial-container .testimonial-title {
   text-transform: uppercase;
   color: #121212;
@@ -992,7 +1014,7 @@ header .header-social-container .header-social-links .social-link img {
 }
 .testimonial-container .testimonial-user-feedback .feedback-container {
   width: inherit;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .testimonial-container .testimonial-user-feedback .feedback-container:first-child .feedback {
   padding: 10px 0 24px 24px;
@@ -1054,6 +1076,9 @@ header .header-social-container .header-social-links .social-link img {
 @media (max-width: 767px) {
   .testimonial-container {
     padding: 0 12px;
+  }
+  .testimonial-container .testimonial-title {
+    padding: 0;
   }
   .testimonial-container .testimonial-user-feedback {
     padding: 0;

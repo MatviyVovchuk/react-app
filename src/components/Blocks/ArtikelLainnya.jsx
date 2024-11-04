@@ -2,44 +2,51 @@ import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 import Article from "../Article/Article";
 
+/**
+ * ArtikelLainnya component to fetch and display a list of related articles.
+ *
+ * @returns {JSX.Element} The rendered ArtikelLainnya component.
+ */
 function ArtikelLainnya() {
   const [artikelLainnya, setArtikelLainnya] = useState({ artikelLainnya: [] });
   const blockTitle = "Artikel Lainnya";
 
   useEffect(() => {
-    const fetchIndustriDesign = async () => {
+    // Function to fetch the latest articles
+    const fetchArticles = async () => {
       try {
-        const data = await Service.getLatestArcticles();
+        const data = await Service.getLatestArticles();
 
         if (data) {
+          // Fetch image URLs for all articles concurrently
           const dataImageUrls = await Promise.all(
-            data.map((item) => {
-              return Service.getImageUrl(item.field_image_1);
-            })
+            data.map((item) => Service.getImageUrl(item.field_image_1))
           );
-          setArtikelLainnya({
-            artikelLainnya: data.map((item, index) => ({
-              articleTitle: item.title_1.replace(/<\/?[^>]+>/gi, ""),
-              articleBody: item.body.replace(/<\/?[^>]+>/gi, ""),
-              articleDate: item.field_date,
-              articleImage: dataImageUrls[index],
-              articleLink: item.title_1.match(/href="([^"]*)"/)
-                ? item.title_1.match(/href="([^"]*)"/)[1]
-                : null,
-            })),
-          });
+
+          // Process articles and update state
+          const processedArticles = data.map((item, index) => ({
+            articleTitle: item.title_1.replace(/<\/?[^>]+>/gi, ""),
+            articleBody: item.body.replace(/<\/?[^>]+>/gi, ""),
+            articleDate: item.field_date,
+            articleImage: dataImageUrls[index],
+            articleLink: item.title_1.match(/href="([^"]*)"/)
+              ? item.title_1.match(/href="([^"]*)"/)[1]
+              : null,
+          }));
+
+          setArtikelLainnya({ artikelLainnya: processedArticles });
         }
       } catch (error) {
         console.error("Error fetching artikel lainnya:", error);
       }
     };
 
-    fetchIndustriDesign();
+    fetchArticles();
   }, []);
 
   return (
     <div className="artikel-lainnya-container">
-      <div className="artikel-lainnya-title"> {blockTitle} </div>
+      <div className="artikel-lainnya-title">{blockTitle}</div>
       <div className="artikel-lainnya-articles">
         {artikelLainnya.artikelLainnya.slice(1, 7).map((article, index) => (
           <Article

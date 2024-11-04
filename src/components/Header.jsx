@@ -5,6 +5,11 @@ import SocialMedia from "./Links/SocialMedia";
 import BurgerIcon from "./Burger/BurgerIcon";
 import BurgerMenu from "./Burger/BurgerMenu";
 
+/**
+ * Header component displays the site header including the logo, menu, social media links, and burger menu.
+ *
+ * @returns {JSX.Element} The rendered header component.
+ */
 function Header() {
   const [logo, setLogo] = useState(null);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -27,11 +32,9 @@ function Header() {
     fetchLogo();
   }, []);
 
+  // Toggle the visibility of the burger menu
   const toggleBurger = () => {
-    setIsBurgerOpen((prevState) => {
-      console.log("Header isBurgerOpen:", !prevState);
-      return !prevState;
-    });
+    setIsBurgerOpen((prevState) => !prevState);
   };
 
   return (
@@ -44,7 +47,7 @@ function Header() {
       <BurgerIcon onClick={toggleBurger} isOpen={isBurgerOpen} />
 
       <div className="header-social-container col-lg-3 col-md-6 col-6">
-        <SocialMedia isBurgerOpen={isBurgerOpen}></SocialMedia>
+        <SocialMedia isBurgerOpen={isBurgerOpen} />
       </div>
       <BurgerMenu isBurgerOpen={isBurgerOpen} />
     </header>

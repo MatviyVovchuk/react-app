@@ -2,39 +2,43 @@ import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 import UserFeedback from "./UserFeedback";
 
+/**
+ * Testimonial component fetches and displays user testimonials.
+ *
+ * @returns {JSX.Element} The rendered Testimonial component.
+ */
 function Testimonial() {
-  const [testimonial, setTestimonial] = useState({ testimonial: [] });
+  const [testimonials, setTestimonials] = useState([]);
   const blockTitle = "Testimonial";
 
   useEffect(() => {
-    const fetchSidebarImage = async () => {
+    // Fetch testimonials from the service
+    const fetchTestimonials = async () => {
       try {
         const data = await Service.getTestimonials();
 
         if (data) {
-          setTestimonial({
-            testimonial: data.map((item, index) => ({
-              testimonialImageUrl: Service.getImageUrl(item.field_image_1),
-              testimonialRemember: item.field_remember,
-              testimonialBody: item.body.replace(/<\/?[^>]+>/gi, ""),
-            })),
-          });
+          const formattedTestimonials = data.map((item) => ({
+            testimonialImageUrl: Service.getImageUrl(item.field_image_1),
+            testimonialRemember: item.field_remember,
+            testimonialBody: item.body.replace(/<\/?[^>]+>/gi, ""),
+          }));
 
-          console.log(testimonial);
+          setTestimonials(formattedTestimonials);
         }
       } catch (error) {
-        console.error("Error fetching sidebar image:", error);
+        console.error("Error fetching testimonials:", error);
       }
     };
 
-    fetchSidebarImage();
+    fetchTestimonials();
   }, []);
 
   return (
     <div className="testimonial-container row">
       <div className="testimonial-title">{blockTitle}</div>
       <div className="testimonial-user-feedback">
-        {testimonial.testimonial
+        {testimonials
           .slice()
           .reverse()
           .map((feedback, index) => (

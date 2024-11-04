@@ -1,5 +1,15 @@
 import React from "react";
 
+/**
+ * UserFeedback component displays feedback from a user.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.userFeedbackImageUrl - URL of the user's feedback image.
+ * @param {string} props.userFeedbackImageAlt - Alt text for the feedback image.
+ * @param {string} props.userFeedbackRemember - The name or identifier of the user providing feedback.
+ * @param {string} props.userFeedbackBody - The content of the feedback.
+ * @returns {JSX.Element} The rendered UserFeedback component.
+ */
 function UserFeedback(props) {
   const {
     userFeedbackImageUrl,

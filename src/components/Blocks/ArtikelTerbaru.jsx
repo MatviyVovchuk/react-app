@@ -2,44 +2,51 @@ import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 import Article from "../Article/Article";
 
+/**
+ * ArtikelTerbaru component fetches and displays the latest articles.
+ *
+ * @returns {JSX.Element} The rendered ArtikelTerbaru component.
+ */
 function ArtikelTerbaru() {
   const [artikelTerbaru, setArtikelTerbaru] = useState({ artikelTerbaru: [] });
   const blockTitle = "Artikel Terbaru";
 
   useEffect(() => {
-    const fetchPilihanEditor = async () => {
+    // Function to fetch the latest articles
+    const fetchLatestArticles = async () => {
       try {
-        const data = await Service.getLatestArcticles();
+        const data = await Service.getLatestArticles();
 
         if (data) {
+          // Fetch image URLs for all articles concurrently
           const dataImageUrls = await Promise.all(
-            data.map((item) => {
-              return Service.getImageUrl(item.field_image_1);
-            })
+            data.map((item) => Service.getImageUrl(item.field_image_1))
           );
-          setArtikelTerbaru({
-            artikelTerbaru: data.map((item, index) => ({
-              articleTitle: item.title_1.replace(/<\/?[^>]+>/gi, ""),
-              articleBody: item.body.replace(/<\/?[^>]+>/gi, ""),
-              articleDate: item.field_date,
-              articleImage: dataImageUrls[index],
-              articleLink: item.title_1.match(/href="([^"]*)"/)
-                ? item.title_1.match(/href="([^"]*)"/)[1]
-                : null,
-            })),
-          });
+
+          // Process articles and update state
+          const processedArticles = data.map((item, index) => ({
+            articleTitle: item.title_1.replace(/<\/?[^>]+>/gi, ""),
+            articleBody: item.body.replace(/<\/?[^>]+>/gi, ""),
+            articleDate: item.field_date,
+            articleImage: dataImageUrls[index],
+            articleLink: item.title_1.match(/href="([^"]*)"/)
+              ? item.title_1.match(/href="([^"]*)"/)[1]
+              : null,
+          }));
+
+          setArtikelTerbaru({ artikelTerbaru: processedArticles });
         }
       } catch (error) {
-        console.error("Error fetching tutorial design:", error);
+        console.error("Error fetching latest articles:", error);
       }
     };
 
-    fetchPilihanEditor();
+    fetchLatestArticles();
   }, []);
 
   return (
     <div className="artikel-terbaru-container">
-      <div className="artikel-terbaru-title"> {blockTitle} </div>
+      <div className="artikel-terbaru-title">{blockTitle}</div>
       <div className="artikel-terbaru-articles row">
         {artikelTerbaru.artikelTerbaru.slice(1, 7).map((article, index) => (
           <div

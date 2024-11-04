@@ -6,7 +6,8 @@
 }
 
 .industri-design-container {
-  // padding-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   .industri-design-title {
     @include blockArticlesTitle;
     color: $color-title-light;
@@ -66,6 +67,7 @@
         .slick-slide {
           .article-container {
             .article {
+              padding: 0 10px;
               &-image {
                 padding: 0;
               }

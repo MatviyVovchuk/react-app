@@ -1,6 +1,15 @@
 @import "variables";
 @import "mixin";
 
+.other-blocks-container {
+  .left-container {
+    padding-right: 30px;
+  }
+  .right-container {
+    padding-left: 30px;
+  }
+}
+
 .artikel-lainnya-container {
   margin-bottom: $margin-large;
   .artikel-lainnya {
@@ -60,6 +69,13 @@
 }
 
 @media (max-width: 991px) {
+  .left-container {
+    padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
+  .right-container {
+    padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
+
   .artikel-lainnya-container {
     margin-bottom: 36px;
     .artikel-lainnya {
@@ -77,6 +93,13 @@
 }
 
 @media (max-width: 767px) {
+  .other-blocks-container {
+    margin: 0;
+    .left-container {
+      padding: 0;
+    }
+  }
+
   .artikel-lainnya-container {
     .artikel-lainnya {
       &-title {

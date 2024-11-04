@@ -2,7 +2,7 @@
 @import "mixin";
 
 .testimonial-container {
-  padding-left: 20px;
+  // padding-left: 20px;
   .testimonial {
     &-title {
       @include blockArticlesTitle;
@@ -11,7 +11,7 @@
     &-user-feedback {
       .feedback-container {
         width: inherit;
-        padding-left: 20px;
+        padding-left: 10px;
 
         &:first-child {
           .feedback {
@@ -89,6 +89,9 @@
 @media (max-width: 767px) {
   .testimonial-container {
     padding: 0 12px;
+    .testimonial-title {
+      padding: 0;
+    }
     .testimonial-user-feedback {
       padding: 0;
       .feedback-container {

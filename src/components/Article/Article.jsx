@@ -1,5 +1,19 @@
 import React from "react";
 
+/**
+ * Article component to display an article with an image, title, date, and body.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.articleLink - The link to the article.
+ * @param {string} props.articleImageUrl - The URL of the article image.
+ * @param {string} props.articleImageAlt - The alt text for the article image.
+ * @param {string} props.articleDate - The date the article was published.
+ * @param {string} props.articleTitle - The title of the article.
+ * @param {string} props.articleBody - The body content of the article.
+ * @param {string} [props.articleImageClass] - Optional additional classes for the image.
+ * @param {string} [props.articleDataClass] - Optional additional classes for the data container.
+ * @returns {JSX.Element} The rendered Article component.
+ */
 function Article(props) {
   const {
     articleLink,
@@ -8,8 +22,8 @@ function Article(props) {
     articleDate,
     articleTitle,
     articleBody,
-    articleImageClass,
-    articleDataClass,
+    articleImageClass = "",
+    articleDataClass = "",
   } = props;
 
   return (

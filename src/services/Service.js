@@ -1,219 +1,112 @@
 const Service = {
+  /**
+   * Fetch data from a given URL and return the parsed JSON.
+   * @param {string} url - The API endpoint to fetch data from.
+   * @returns {Promise<any|null>} - The parsed JSON data or null if an error occurs.
+   */
+  fetchData: async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch from ${url}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null; // Return null to indicate failure
+    }
+  },
+
   // Get site logo.
   getLogo: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_LOGO_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch logo");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching logo:", error);
-      return null;
-    }
+    return await Service.fetchData(import.meta.env.VITE_LOGO_API_URL);
   },
 
   // Get menu links values.
   getMenuLink: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_MENU_LINKS_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch menu links");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching menu links:", error);
-      return null;
-    }
+    return await Service.fetchData(import.meta.env.VITE_MENU_LINKS_API_URL);
   },
 
   // Get social links values.
   getSocialLink: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_SOCIAL_LINKS_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch social links");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching social links:", error);
-      return null;
-    }
+    return await Service.fetchData(import.meta.env.VITE_SOCIAL_LINKS_API_URL);
   },
 
-  // Concatenate domain with image path.
+  /**
+   * Concatenate domain with image path.
+   * @param {string} imagePath - The image path to concatenate.
+   * @returns {string} - The full image URL.
+   */
   getImageUrl: (imagePath) => {
     const staticDomain = import.meta.env.VITE_SITE_DOMEN;
     return `${staticDomain}${imagePath}`;
   },
 
+  // Fetch page title.
   getPageTitle: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_PAGE_TITLE_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch page title");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching page title:", error);
-      throw error;
-    }
+    return await Service.fetchData(import.meta.env.VITE_PAGE_TITLE_API_URL);
   },
 
-  getImportantTeser: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_IMPORTANT_TEASER_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch important teser");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching important teser:", error);
-      throw error;
-    }
+  // Fetch important teaser.
+  getImportantTeaser: async () => {
+    return await Service.fetchData(
+      import.meta.env.VITE_IMPORTANT_TEASER_API_URL
+    );
   },
 
+  // Fetch other teasers.
   getOtherTeasers: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_OTHER_TEASER_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch other teaser");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching other teaser:", error);
-      throw error;
-    }
+    return await Service.fetchData(import.meta.env.VITE_OTHER_TEASER_API_URL);
   },
 
+  // Fetch tutorial design.
   getTutorialDesign: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_OTHER_TUTORIAL_DESIGN_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch tutorial design");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching tutorial design:", error);
-      throw error;
-    }
+    return await Service.fetchData(
+      import.meta.env.VITE_OTHER_TUTORIAL_DESIGN_API_URL
+    );
   },
 
+  // Fetch first static block.
   getFirstStaticBlock: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_STATIC_BLOCK_1_DESIGN_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch first static block");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching first static block:", error);
-      throw error;
-    }
+    return await Service.fetchData(
+      import.meta.env.VITE_STATIC_BLOCK_1_DESIGN_API_URL
+    );
   },
 
+  // Fetch second static block.
   getSecondStaticBlock: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_STATIC_BLOCK_2_DESIGN_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch second static block");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching second static block:", error);
-      throw error;
-    }
+    return await Service.fetchData(
+      import.meta.env.VITE_STATIC_BLOCK_2_DESIGN_API_URL
+    );
   },
 
+  // Fetch pilihan editor.
   getPilihanEditor: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_PILIHAN_EDITOR_DESIGN_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch pilihan editor");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching pilihan editor:", error);
-      throw error;
-    }
+    return await Service.fetchData(
+      import.meta.env.VITE_PILIHAN_EDITOR_DESIGN_API_URL
+    );
   },
 
-  getLatestArcticles: async () => {
-    try {
-      const response = await fetch(
-        import.meta.env.VITE_LATEST_ARTICLES_API_URL
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch artikel terbaru");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching artikel terbaru:", error);
-      throw error;
-    }
+  // Fetch latest articles.
+  getLatestArticles: async () => {
+    return await Service.fetchData(
+      import.meta.env.VITE_LATEST_ARTICLES_API_URL
+    );
   },
 
+  // Fetch arsip.
   getArsip: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_ARSIP_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch arsip");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching arsip:", error);
-      throw error;
-    }
+    return await Service.fetchData(import.meta.env.VITE_ARSIP_API_URL);
   },
 
+  // Fetch sidebar image.
   getSidebarImage: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_SIDEBAR_IMAGE_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch sidebar image");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching sidebar image:", error);
-      throw error;
-    }
+    return await Service.fetchData(import.meta.env.VITE_SIDEBAR_IMAGE_API_URL);
   },
 
+  // Fetch testimonials.
   getTestimonials: async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_TESTIMOIALS_API_URL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch testimonials");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching testimonials:", error);
-      throw error;
-    }
+    return await Service.fetchData(import.meta.env.VITE_TESTIMOIALS_API_URL);
   },
 };
 

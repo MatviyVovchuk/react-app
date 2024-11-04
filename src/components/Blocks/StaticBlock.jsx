@@ -1,5 +1,17 @@
 import React from "react";
 
+/**
+ * StaticBlock component displays a block with a title, body, an image, and a link.
+ *
+ * @param {Object} props - The props object.
+ * @param {string} props.blockTitle - The title of the block.
+ * @param {string} props.blockImageUrl - The URL of the block image.
+ * @param {string} props.blockImageAlt - The alt text for the block image.
+ * @param {string} props.blockBody - The body text of the block.
+ * @param {string} props.blockLink - The text for the read more link.
+ * @param {string} props.blockLinkUrl - The URL for the read more link.
+ * @returns {JSX.Element} The rendered StaticBlock component.
+ */
 function StaticBlock(props) {
   const {
     blockTitle,

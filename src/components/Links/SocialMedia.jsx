@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from "react";
 import Service from "../../services/Service";
 
+/**
+ * SocialMedia component displays social media links with icons.
+ *
+ * @param {Object} props - Component properties.
+ * @param {boolean} props.isBurgerOpen - Indicates if the burger menu is open.
+ * @returns {JSX.Element|null} The rendered social media links or null if the burger menu is open.
+ */
 function SocialMedia(props) {
-  const [socialLinks, setSocialLinks] = useState([]);
   const { isBurgerOpen } = props;
+  const [socialLinks, setSocialLinks] = useState([]);
 
   useEffect(() => {
+    // Fetch social media links and icons from the service
     const fetchData = async () => {
       try {
-        const socialLinksResponse = await Service.getSocialLink();
+        const response = await Service.getSocialLink();
 
-        if (
-          socialLinksResponse &&
-          socialLinksResponse.data &&
-          socialLinksResponse.data.field_social_links
-        ) {
-          const socialLinksData = socialLinksResponse.data.field_social_links;
+        // Ensure the response contains the necessary data
+        if (response?.data?.field_social_links) {
+          const socialLinksData = response.data.field_social_links;
 
-          const socialImagesData = socialLinksData.map((item) => {
-            const imageUrl = Service.getImageUrl(item.field_icon_svg.uri.url);
-            return {
-              ...item,
-              imageUrl: imageUrl,
-            };
-          });
+          // Map social links to include image URLs
+          const socialImagesData = socialLinksData.map((item) => ({
+            ...item,
+            imageUrl: Service.getImageUrl(item.field_icon_svg.uri.url),
+          }));
 
           setSocialLinks(socialImagesData);
         }
@@ -35,9 +38,10 @@ function SocialMedia(props) {
     fetchData();
   }, []);
 
+  // Render the social links if the burger menu is not open
   return (
     !isBurgerOpen && (
-      <div className={"header-social-links " + (isBurgerOpen ? "open" : "")}>
+      <div className="header-social-links">
         {socialLinks.map((link, index) => (
           <a
             key={index}

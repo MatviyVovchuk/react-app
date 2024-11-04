@@ -13,30 +13,27 @@ import Testimonial from "../components/Blocks/Testimonial";
 import SidebarImage from "../components/Blocks/SidebarImage";
 import BackToTop from "../components/BackToTop";
 
+/**
+ * Blog component renders the main structure of the blog page.
+ *
+ * @returns {JSX.Element} The rendered blog component.
+ */
 function Blog() {
-  const [pageTitle, setPageTitle] = useState("");
-  const [firstStaticBlock, setFirstStaticBlock] = useState({
-    staticBlockData: [],
-    staticBlockBody: "",
-    staticBlockImageUrl: "",
-  });
-  const [secondStaticBlock, setSecondStaticBlock] = useState({
-    staticBlockData: [],
-    staticBlockBody: "",
-    staticBlockImageUrl: "",
-  });
+  const [pageTitle, setPageTitle] = useState(""); // State to hold the page title
+  const [firstStaticBlock, setFirstStaticBlock] = useState({}); // State for the first static block
+  const [secondStaticBlock, setSecondStaticBlock] = useState({}); // State for the second static block
 
+  // Fetch the page title from the service
   useEffect(() => {
     const fetchTitle = async () => {
       try {
         const titleData = await Service.getPageTitle();
-
         if (titleData) {
           const rawHtmlTitle = titleData?.data?.[0]?.body?.value;
-          if (rawHtmlTitle) {
-            const cleanTitle = rawHtmlTitle.replace(/<\/?[^>]+>/gi, "");
-            setPageTitle(cleanTitle);
-          }
+          const cleanTitle = rawHtmlTitle
+            ? rawHtmlTitle.replace(/<\/?[^>]+>/gi, "")
+            : "";
+          setPageTitle(cleanTitle); // Set the cleaned title
         }
       } catch (error) {
         console.error("Error fetching page title:", error);
@@ -45,11 +42,11 @@ function Blog() {
     fetchTitle();
   }, []);
 
+  // Fetch the first static block data
   useEffect(() => {
     const fetchFirstStaticBlock = async () => {
       try {
         const fStaticBlockData = await Service.getFirstStaticBlock();
-
         if (fStaticBlockData) {
           const blockDataImageUrl = await Service.getImageUrl(
             fStaticBlockData.data.field_image.uri.url
@@ -70,11 +67,11 @@ function Blog() {
     fetchFirstStaticBlock();
   }, []);
 
+  // Fetch the second static block data
   useEffect(() => {
     const fetchSecondStaticBlock = async () => {
       try {
         const fStaticBlockData = await Service.getSecondStaticBlock();
-
         if (fStaticBlockData) {
           const blockDataImageUrl = await Service.getImageUrl(
             fStaticBlockData.data.field_image.uri.url
@@ -107,18 +104,12 @@ function Blog() {
       </div>
       <div className="dark static-block-padding">
         <StaticBlock
-          blockTitle={firstStaticBlock.staticBlockData.field_title}
+          blockTitle={firstStaticBlock.staticBlockData?.field_title}
           blockImageUrl={firstStaticBlock.staticBlockImageUrl}
-          blockImageAlt={firstStaticBlock.staticBlockData.field_title}
+          blockImageAlt={firstStaticBlock.staticBlockData?.field_title}
           blockBody={firstStaticBlock.staticBlockBody}
-          blockLink={
-            firstStaticBlock.staticBlockData.field_link &&
-            firstStaticBlock.staticBlockData.field_link.title
-          }
-          blockLinkUrl={
-            firstStaticBlock.staticBlockData.field_link &&
-            firstStaticBlock.staticBlockData.field_link.uri
-          }
+          blockLink={firstStaticBlock.staticBlockData?.field_link?.title}
+          blockLinkUrl={firstStaticBlock.staticBlockData?.field_link?.uri}
         />
       </div>
       <div className="whitearea">
@@ -126,23 +117,17 @@ function Blog() {
       </div>
       <div className="yellow static-block-padding">
         <StaticBlock
-          blockTitle={secondStaticBlock.staticBlockData.field_title}
+          blockTitle={secondStaticBlock.staticBlockData?.field_title}
           blockImageUrl={secondStaticBlock.staticBlockImageUrl}
-          blockImageAlt={secondStaticBlock.staticBlockData.field_title}
+          blockImageAlt={secondStaticBlock.staticBlockData?.field_title}
           blockBody={secondStaticBlock.staticBlockBody}
-          blockLink={
-            secondStaticBlock.staticBlockData.field_link &&
-            secondStaticBlock.staticBlockData.field_link.title
-          }
-          blockLinkUrl={
-            secondStaticBlock.staticBlockData.field_link &&
-            secondStaticBlock.staticBlockData.field_link.uri
-          }
+          blockLink={secondStaticBlock.staticBlockData?.field_link?.title}
+          blockLinkUrl={secondStaticBlock.staticBlockData?.field_link?.uri}
         />
       </div>
-      {/* <div className="whitearea">
+      <div className="whitearea">
         <ArtikelTerbaru />
-      </div> */}
+      </div>
       <div className="dark">
         <IndustriDesign />
       </div>
